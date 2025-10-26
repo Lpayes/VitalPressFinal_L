@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/degradado_celeste_verde"
+    tools:context=".MenuPrincipalActivity">
+
+    <!-- ENCABEZADO COMÚN - Color anaranjado -->
+    <LinearLayout
+        android:id="@+id/encabezado_comun"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/anaranjado"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Parte superior del encabezado: logo, título y ajustes -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- Logo VitalPress -->
+            <ImageView
+                android:id="@+id/logo_vitalpress"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:src="@drawable/logovitalpress"
+                android:contentDescription="@string/logo_vitalpress_desc" />
+
+            <!-- Título dinámico -->
+            <TextView
+                android:id="@+id/titulo_seccion"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/menu_principal"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:gravity="center" />
+
+            <!-- Icono de ajustes (configuracion.png) -->
+            <ImageView
+                android:id="@+id/icono_ajustes"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/configuracion"
+                android:contentDescription="@string/ajustes_desc"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="4dp" />
+
+        </LinearLayout>
+
+        <!-- Frase fija -->
+        <TextView
+            android:id="@+id/frase_fija"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tu_salud_es_primero"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_marginTop="8dp" />
+
+    </LinearLayout>
+
+    <!-- Contenido principal -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <!-- Botones ARRIBA del corazón -->
+            <Button
+                android:id="@+id/btn_chat_ia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/chat_ia"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:background="@drawable/boton_beige_curvo"
+                android:layout_marginBottom="16dp" />
+
+            <Button
+                android:id="@+id/btn_seccion_datos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/seccion_datos"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:background="@drawable/boton_beige_curvo"
+                android:layout_marginBottom="16dp" />
+
+            <Button
+                android:id="@+id/btn_recordatorio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/recordatorio_toma_presion"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:background="@drawable/boton_beige_curvo"
+                android:layout_marginBottom="32dp" />
+
+            <!-- Imagen central: corazón -->
+            <ImageView
+                android:id="@+id/imagen_corazon"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/corazon"
+                android:contentDescription="@string/corazon_vitalpress_desc"
+                android:layout_marginBottom="32dp" />
+
+            <!-- Botones DEBAJO del corazón -->
+            <Button
+                android:id="@+id/btn_recomendaciones"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/recomendaciones"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:background="@drawable/boton_beige_curvo"
+                android:layout_marginBottom="16dp" />
+
+            <Button
+                android:id="@+id/btn_actualizar_datos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/actualizar_datos"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:background="@drawable/boton_beige_curvo"
+                android:layout_marginBottom="16dp" />
+
+            <Button
+                android:id="@+id/btn_ver_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ver_info"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:background="@drawable/boton_beige_curvo"
+                android:layout_marginBottom="16dp" />
+
+            <Button
+                android:id="@+id/btn_llamar_emergencia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Llamar Emergencia"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:background="@drawable/boton_beige_curvo"
+                android:layout_marginBottom="16dp" />
+
+            <Button
+                android:id="@+id/btn_agendar_cita"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Agendar cita"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:background="@drawable/boton_beige_curvo"
+                android:layout_marginBottom="16dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

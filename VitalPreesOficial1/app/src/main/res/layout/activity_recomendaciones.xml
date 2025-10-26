@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/amarillo_palido"
+    tools:context=".RecomendacionesActivity">
+
+    <!-- ENCABEZADO COMÚN - Color anaranjado -->
+    <LinearLayout
+        android:id="@+id/encabezado_comun"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/anaranjado"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/logo_vitalpress"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/logovitalpress"
+                android:contentDescription="@string/logo_vitalpress_desc" />
+
+            <TextView
+                android:id="@+id/titulo_seccion"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/recomendaciones"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Contenido principal con tres fragmentos scrollables -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Fragmento 1: Consejos Generales -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/consejos_generales"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:layout_marginBottom="8dp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/fragmento_beige_curvo"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/txt_consejos_generales"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/consejos_generales_desc"
+                android:textSize="14sp"
+                android:textColor="@color/black" />
+
+        </ScrollView>
+
+        <!-- Fragmento 2: Enlaces de Video Sugeridos -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/enlaces_video_sugeridos"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:layout_marginBottom="8dp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/fragmento_beige_curvo"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/txt_videos_sugeridos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/enlaces_video_desc"
+                android:textSize="14sp"
+                android:textColor="@color/black" />
+
+        </ScrollView>
+
+        <!-- Fragmento 3: Instrucciones de la Aplicación -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/instrucciones_aplicacion"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:layout_marginBottom="8dp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/fragmento_beige_curvo"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/txt_instrucciones_app"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/instrucciones_app_desc"
+                android:textSize="14sp"
+                android:textColor="@color/black" />
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <!-- Botones inferiores -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/btn_generar_con_ia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/boton_beige_curvo"
+            android:text="Generar con IA"
+            android:textColor="@color/white"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:id="@+id/btn_regresar_recomendaciones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/boton_beige_curvo"
+            android:text="@string/regresar"
+            android:textColor="@color/white"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@drawable/fragmento_beige_curvo"
+    android:padding="16dp"
+    android:layout_marginBottom="8dp">
+
+    <!-- Información del recordatorio -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <!-- Fecha y Hora -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="4dp">
+
+            <TextView
+                android:id="@+id/txt_fecha_recordatorio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="01/01/2024"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/azul"
+                android:layout_marginEnd="16dp" />
+
+            <TextView
+                android:id="@+id/txt_hora_recordatorio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="08:00"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/azul" />
+
+        </LinearLayout>
+
+        <!-- Descripción -->
+        <TextView
+            android:id="@+id/txt_descripcion_recordatorio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Descripción del recordatorio"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:maxLines="2"
+            android:ellipsize="end" />
+
+    </LinearLayout>
+
+    <!-- Menú de tres puntitos -->
+    <ImageView
+        android:id="@+id/btn_menu_recordatorio"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@android:drawable/ic_menu_more"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:contentDescription="Opciones"
+        android:layout_gravity="center_vertical" />
+
+</LinearLayout>

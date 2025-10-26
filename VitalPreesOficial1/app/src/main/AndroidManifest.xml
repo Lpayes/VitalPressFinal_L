@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.vitalpreesoficial">
+
+    <!-- Features primero -->
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.telephony" android:required="false" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.VitalPreesOficial">
+
+        <!-- MainActivity - Pantalla de Login -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!-- Intent-filter para recibir el redirect URI OAuth -->
+            <!-- Reemplaza YOUR_CLIENT_ID por tu Client ID completo (ej. 123...apps.googleusercontent.com) -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="com.googleusercontent.apps.175824285025-6u3dvutdofjip8t1atsiollt6drcrqug.apps.googleusercontent.com"
+                    android:host="oauth2redirect" />
+            </intent-filter>
+        </activity>
+
+        <!-- Registro2Activity - Pantalla de Registro -->
+        <activity
+            android:name=".Registro2Activity"
+            android:exported="false" />
+
+        <!-- InicioActivity - Pantalla post-login -->
+        <activity
+            android:name=".InicioActivity"
+            android:exported="false" />
+
+        <!-- MenuPrincipalActivity - Menú Principal -->
+        <activity
+            android:name=".MenuPrincipalActivity"
+            android:exported="false" />
+
+        <!-- ModosIAActivity - Modos de IA -->
+        <activity
+            android:name=".ModosIAActivity"
+            android:exported="false" />
+
+        <!-- SeccionDatosActivity - Sección de Datos -->
+        <activity
+            android:name=".SeccionDatosActivity"
+            android:exported="false" />
+
+        <!-- RecomendacionesActivity - Recomendaciones -->
+        <activity
+            android:name=".RecomendacionesActivity"
+            android:exported="false" />
+
+
+        <!-- ActualizarDatosActivity - Actualizar Datos -->
+        <activity
+            android:name=".ActualizarDatosActivity"
+            android:exported="false" />
+
+        <!-- RecordatorioActivity - Recordatorio/Alarmas -->
+        <activity
+            android:name=".RecordatorioActivity"
+            android:exported="false" />
+
+        <!-- AjustesActivity - Ajustes -->
+        <activity
+            android:name=".AjustesActivity"
+            android:exported="false" />
+
+        <!-- VerInfoActivity - Ver Información -->
+        <activity
+            android:name=".VerInfoActivity"
+            android:exported="false" />
+
+        <!-- ChatIAActivity - Chat IA Principal -->
+        <activity
+            android:name=".ChatIAActivity"
+            android:exported="false" />
+
+        <!-- ModoAprendizajeActivity - Modo Aprendizaje IA -->
+        <activity
+            android:name=".ModoAprendizajeActivity"
+            android:exported="false" />
+
+        <!-- ModoEnsenanzaActivity - Modo Enseñanza IA -->
+        <activity
+            android:name=".ModoEnsenanzaActivity"
+            android:exported="false" />
+
+        <!-- ModoInformativoActivity - Modo Informativo -->
+        <activity
+            android:name=".ModoInformativoActivity"
+            android:exported="false" />
+
+        <!-- HistorialPresionActivity - Historial de presión arterial -->
+        <activity
+            android:name=".HistorialPresionActivity"
+            android:exported="false" />
+
+        <!-- AgendarCitaActivity - Agendar Cita Médica -->
+        <activity
+            android:name=".AgendarCitaActivity"
+            android:exported="false" />
+        <!-- HistorialCitasActivity - Historial de Citas -->
+        <activity
+            android:name=".HistorialCitasActivity"
+            android:exported="false" />
+
+        <!-- Alarm Receiver para recordatorios -->
+        <receiver android:name=".AlarmReceiver" android:exported="false" />
+
+        <!-- FileProvider para gestionar archivos de la cámara -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.vitalpreesoficial.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+        </intent>
+    </queries>
+
+</manifest>

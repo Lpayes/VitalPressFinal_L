@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/degradado_celeste_verde_fuerte"
+    tools:context=".SeccionDatosActivity">
+
+    <!-- ENCABEZADO COMÚN - Color anaranjado -->
+    <LinearLayout
+        android:id="@+id/encabezado_comun"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/anaranjado"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/logo_vitalpress"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/logovitalpress"
+                android:contentDescription="Logo VitalPress" />
+
+            <TextView
+                android:id="@+id/titulo_seccion"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Sección Datos"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/frase_fija"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tu salud es primero"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_marginTop="8dp" />
+
+    </LinearLayout>
+
+    <!-- Contenido principal -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <!-- Botón sobre la imagen -->
+            <Button
+                android:id="@+id/btn_exportar_pdf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Exportar PDF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:background="@drawable/boton_beige_curvo"
+                android:layout_marginBottom="32dp" />
+
+            <!-- Imagen central: imagensecciondatos -->
+            <ImageView
+                android:id="@+id/imagen_seccion_datos"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/imagensecciondatos"
+                android:contentDescription="Imagen Sección Datos"
+                android:layout_marginBottom="32dp" />
+
+            <!-- Botones debajo de la imagen -->
+            <Button
+                android:id="@+id/btn_importar_archivo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Importar Archivo"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:background="@drawable/boton_beige_curvo"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Botón adicional: subir imagen desde galería -->
+            <Button
+                android:id="@+id/btn_subir_imagen_galeria"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Subir imagen desde galería"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:background="@drawable/boton_beige_curvo"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Nuevo: campos para ingresar presión arterial manualmente (detallado) -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ingresar presión arterial"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="6dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                android:layout_marginBottom="8dp">
+
+                <EditText
+                    android:id="@+id/edit_sistolica"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Sistólica"
+                    android:inputType="number"
+                    android:background="@drawable/caja_texto_beige"
+                    android:padding="12dp"
+                    android:textColor="@color/black" />
+
+                <View
+                    android:layout_width="8dp"
+                    android:layout_height="match_parent" />
+
+                <EditText
+                    android:id="@+id/edit_diastolica"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Diastólica"
+                    android:inputType="number"
+                    android:background="@drawable/caja_texto_beige"
+                    android:padding="12dp"
+                    android:textColor="@color/black" />
+
+                <View
+                    android:layout_width="8dp"
+                    android:layout_height="match_parent" />
+
+                <EditText
+                    android:id="@+id/edit_pulso"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Pulso"
+                    android:inputType="number"
+                    android:background="@drawable/caja_texto_beige"
+                    android:padding="12dp"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_guardar_presion_detallada"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Guardar presión (3 valores)"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:background="@drawable/boton_azul_curvo"
+                android:textColor="@color/white"
+                android:layout_marginBottom="20dp" />
+
+            <!-- Nuevo: botón historial de presión -->
+            <Button
+                android:id="@+id/btn_historial_presion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ver historial de presión"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:background="@drawable/boton_beige_curvo"
+                android:layout_marginBottom="20dp" />
+
+            <!-- Botón para ver el último archivo importado -->
+            <Button
+                android:id="@+id/btn_ver_archivo_importado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ver archivo importado"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:background="@drawable/boton_beige_curvo"
+                android:layout_marginBottom="16dp" />
+
+            <Button
+                android:id="@+id/btn_enviar_correo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enviar Info al Correo"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:background="@drawable/boton_beige_curvo"
+                android:layout_marginBottom="16dp" />
+
+            <Button
+                android:id="@+id/btn_pendiente_datos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ver y exportar documento del usuario"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:background="@drawable/boton_beige_curvo"
+                android:layout_marginBottom="12dp" />
+
+            <!-- NUEVO: botón ¿Cómo estás? muestra resumen basado en historial y última toma -->
+            <Button
+                android:id="@+id/btn_como_estas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="¿Cómo estás?"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:background="@drawable/boton_beige_curvo"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Nuevo: crear y actualizar documento -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_marginBottom="16dp">
+
+                <Button
+                    android:id="@+id/btn_crear_nuevo_doc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Crear nuevo doc"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/boton_beige_curvo"
+                    android:layout_marginEnd="8dp" />
+
+                <Button
+                    android:id="@+id/btn_actualizar_doc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Actualizar info del doc"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/boton_beige_curvo"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+            <!-- Botón para escanear dispositivo que abrirá la cámara -->
+            <Button
+                android:id="@+id/btn_escanear_dispositivo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Escanear dispositivo"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:background="@drawable/boton_beige_curvo"
+                android:layout_marginBottom="32dp" />
+
+            <!-- API Keys y URL de Document AI -->
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- Botón Regresar - inferior derecha -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/btn_regresar_datos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Regresar"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/rojo"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+
+</LinearLayout>

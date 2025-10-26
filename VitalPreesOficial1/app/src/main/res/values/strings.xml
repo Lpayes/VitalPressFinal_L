@@ -1,0 +1,79 @@
+<resources>
+    <string name="app_name">VitalPreesOficial</string>
+
+    <!-- Textos comunes -->
+    <string name="tu_salud_es_primero">Tu salud es primero</string>
+    <string name="regresar">Regresar</string>
+    <string name="cerrar_sesion">Cerrar Sesión</string>
+    <string name="cambiar">Cambiar</string>
+
+    <!-- Descripciones de contenido -->
+    <string name="logo_vitalpress_desc">Logo VitalPress</string>
+    <string name="imagen_ajustes_desc">Imagen Ajustes</string>
+    <string name="corazon_vitalpress_desc">Corazón VitalPress</string>
+    <string name="foto_perfil_desc">Foto de perfil</string>
+
+    <!-- Menú principal -->
+    <string name="menu_principal">Menú Principal</string>
+    <string name="ajustes_desc">Ajustes</string>
+    <string name="chat_ia">Chat IA</string>
+    <string name="seccion_datos">Sección Datos</string>
+    <string name="recordatorio_toma_presion">Recordatorio de Toma de Presión</string>
+    <string name="pendiente">Pendiente</string>
+    <string name="recomendaciones">Recomendaciones</string>
+    <string name="actualizar_datos">Actualizar Datos</string>
+    <string name="ver_info">Ver Info</string>
+
+    <!-- Ajustes -->
+    <string name="ajustes">Ajustes</string>
+
+    <!-- Recordatorio -->
+    <string name="recordatorio_title">Recordatorio</string>
+    <string name="imagen_recordatorio_desc">Imagen Recordatorio</string>
+    <string name="toca_agregar_recordatorio">Toca para agregar recordatorio</string>
+    <string name="nuevo_recordatorio">Nuevo Recordatorio</string>
+    <string name="seleccionar_fecha_hint">Seleccionar fecha</string>
+    <string name="seleccionar_hora_hint">Seleccionar hora</string>
+    <string name="descripcion_recordatorio_hint">Descripción del recordatorio</string>
+    <string name="mis_recordatorios">Mis Recordatorios</string>
+
+    <!-- Modo Aprendizaje -->
+    <string name="modo_aprendizaje">Modo Aprendizaje</string>
+    <string name="bienvenida_modo_aprendizaje">Bienvenido al Modo Aprendizaje...</string>
+    <string name="escribe_pregunta_hint">Escribe tu pregunta sobre salud cardiovascular...</string>
+    <string name="enviar">Enviar</string>
+    <string name="limpiar">Limpiar</string>
+
+    <!-- Recomendaciones -->
+    <string name="consejos_generales">Consejos Generales</string>
+    <string name="consejos_generales_desc">- Mantén una dieta equilibrada y baja en sal.
+- Realiza actividad física regularmente.
+- Controla tu presión arterial y sigue las indicaciones de tu médico.
+- Evita el consumo excesivo de alcohol y tabaco.
+- Duerme bien y reduce el estrés.</string>
+    <string name="enlaces_video_sugeridos">Enlaces de Video Sugeridos</string>
+    <string name="enlaces_video_desc">- https://www.youtube.com/watch?v=abcd1234: Ejercicios para el corazón
+- https://www.youtube.com/watch?v=efgh5678: Alimentación saludable
+- https://www.youtube.com/watch?v=ijkl9012: Cómo controlar la presión arterial</string>
+    <string name="instrucciones_aplicacion">Instrucciones de la Aplicación</string>
+    <string name="instrucciones_app_desc">1. Usa el menú principal para navegar entre las secciones.
+2. Registra y consulta tus datos de salud.
+3. Utiliza el chat IA para resolver dudas.
+4. Configura recordatorios para tomar tu presión.
+5. Consulta recomendaciones y videos útiles.</string>
+    <string name="modos_ia">Modos IA</string>
+    <string name="modo_ensenanza">Modo Enseñanza</string>
+
+    <!-- Login -->
+    <!-- API keys removed: use BuildConfig or local secrets.properties -->
+    <string name="openai_api_key">AQUI_VA_OPENAI_API_KEY</string>
+
+    <!-- Document AI -->
+    <string name="documentai_api_key">AQUI_VA_DOCUMENTAI_API_KEY</string>
+
+    <!-- Sexo Array -->
+    <string-array name="sexo_array">
+        <item>Masculino</item>
+        <item>Femenino</item>
+    </string-array>
+</resources>

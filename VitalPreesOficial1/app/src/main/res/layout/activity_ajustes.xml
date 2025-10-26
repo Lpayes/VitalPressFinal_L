@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/amarillo_palido"
+    tools:context=".AjustesActivity">
+
+    <!-- ENCABEZADO COMÚN - Color anaranjado -->
+    <LinearLayout
+        android:id="@+id/encabezado_comun"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/anaranjado"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/logo_vitalpress"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/logovitalpress"
+                android:contentDescription="@string/logo_vitalpress_desc" />
+
+            <TextView
+                android:id="@+id/titulo_seccion"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/ajustes"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Círculo de perfil en esquina superior derecha -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/circulo_foto_perfil"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/circulo_perfil"
+            android:contentDescription="@string/foto_perfil_desc"
+            android:scaleType="centerCrop"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <!-- Nombre y Apellido a la par del círculo de perfil -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_toStartOf="@id/circulo_foto_perfil"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginEnd="16dp">
+
+            <EditText
+                android:id="@+id/txt_nombre_apellido_perfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Nombre Apellido"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/azul"
+                android:background="@null"
+                android:inputType="textPersonName" />
+        </LinearLayout>
+
+        <!-- Botón cambiar foto VERDE debajo del círculo -->
+        <Button
+            android:id="@+id/btn_cambiar_perfil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/circulo_foto_perfil"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="8dp"
+            android:text="@string/cambiar"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/verde"
+            android:padding="8dp" />
+
+    </RelativeLayout>
+
+    <!-- Contenido principal con imagen centrada -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="32dp">
+
+        <!-- Imagen central: imagenajustes.png -->
+        <ImageView
+            android:id="@+id/imagen_ajustes"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/imagenajustes"
+            android:contentDescription="@string/imagen_ajustes_desc"
+            android:layout_gravity="center" />
+
+    </LinearLayout>
+
+    <!-- Botones DEBAJO de la imagen - centrados -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="16dp">
+
+        <!-- Botón Cerrar Sesión -->
+        <Button
+            android:id="@+id/btn_cerrar_sesion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cerrar_sesion"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/azul"
+            android:layout_marginBottom="16dp"
+            android:paddingHorizontal="32dp" />
+
+        <!-- Botón Regresar -->
+        <Button
+            android:id="@+id/btn_regresar_ajustes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/regresar"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/rojo"
+            android:paddingHorizontal="32dp" />
+
+        <!-- Botón Actualizar - Color amarillo -->
+        <Button
+            android:id="@+id/btn_guardar_nombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Guardar Nombre"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/verde"
+            android:textColor="@color/white" />
+
+        <!-- EditText para contacto de emergencia -->
+        <EditText
+            android:id="@+id/edit_contacto_emergencia_ajustes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Contacto emergencia (tel)"
+            android:inputType="phone"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/azul"
+            android:background="@null" />
+
+    </LinearLayout>
+
+</LinearLayout>

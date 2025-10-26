@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/fondoia"
+    tools:context=".ModoEnsenanzaActivity">
+
+    <!-- ENCABEZADO COMÚN - Color anaranjado -->
+    <LinearLayout
+        android:id="@+id/encabezado_comun"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/anaranjado"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/logo_vitalpress"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/logovitalpress"
+                android:contentDescription="@string/logo_vitalpress_desc" />
+
+            <TextView
+                android:id="@+id/titulo_seccion"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/modo_ensenanza"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/frase_fija"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tu_salud_es_primero"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_marginTop="8dp" />
+
+    </LinearLayout>
+
+    <!-- Área de chat - ocupa la mayor parte de la pantalla -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Área de respuestas scrollable -->
+        <ScrollView
+            android:id="@+id/scroll_respuestas"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/fragmento_beige_curvo"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/txt_respuesta_ia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:lineSpacingExtra="4dp" />
+
+        </ScrollView>
+
+        <!-- Área de entrada de respuesta del usuario -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/fragmento_beige_curvo"
+            android:padding="16dp">
+
+            <EditText
+                android:id="@+id/edit_pregunta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Escribe tu respuesta..."
+                android:inputType="textMultiLine"
+                android:lines="2"
+                android:maxLines="4"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Botones de acción -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_enviar_pregunta"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Responder"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/boton_beige_curvo" />
+
+                <Button
+                    android:id="@+id/btn_limpiar_chat"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Limpiar"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/boton_beige_curvo" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Botón Regresar - inferior derecha -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/btn_regresar_aprendizaje"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/regresar"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/rojo"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+
+</LinearLayout>

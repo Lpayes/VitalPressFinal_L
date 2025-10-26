@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="edit_sistolica" />
+    <item type="id" name="edit_diastolica" />
+    <item type="id" name="edit_pulso" />
+    <item type="id" name="btn_guardar_presion_detallada" />
+    <item type="id" name="btn_ver_exportar_docx" />
+    <item type="id" name="txt_sistolica" />
+    <item type="id" name="txt_diastolica" />
+    <item type="id" name="txt_pulso" />
+    <item type="id" name="container_resumenes" />
+    <item type="id" name="btn_generar_con_ia" />
+</resources>

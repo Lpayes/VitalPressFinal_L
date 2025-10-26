@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/rosada"
+    tools:context=".MainActivity">
+
+    <!-- ENCABEZADO COMÚN - Color anaranjado -->
+    <LinearLayout
+        android:id="@+id/encabezado_comun"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/anaranjado"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Parte superior del encabezado: logo y título -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- Logo VitalPress -->
+            <ImageView
+                android:id="@+id/logo_vitalpress"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/logovitalpress"
+                android:contentDescription="@string/logo_vitalpress_desc" />
+
+            <!-- Título dinámico -->
+            <TextView
+                android:id="@+id/titulo_seccion"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/app_name"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <!-- Frase fija -->
+        <TextView
+            android:id="@+id/frase_fija"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tu_salud_es_primero"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_marginTop="8dp" />
+
+    </LinearLayout>
+
+    <!-- Contenido principal -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="32dp">
+
+        <!-- Botón Iniciar Sesión - arriba del corazón -->
+        <Button
+            android:id="@+id/btn_iniciar_sesion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/boton_beige_curvo"
+            android:text="Iniciar sesión"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- Imagen central: corazón -->
+        <ImageView
+            android:id="@+id/imagen_corazon"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="@string/corazon_vitalpress_desc"
+            android:src="@drawable/corazon" />
+
+        <!-- Texto para ir a registro -->
+        <TextView
+            android:id="@+id/texto_no_cuenta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¿No tienes una cuenta? "
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/txt_registrarse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="Registrarse"
+            android:textColor="@color/rojo"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- Botón Login - Color amarillo -->
+
+    </LinearLayout>
+
+</LinearLayout>

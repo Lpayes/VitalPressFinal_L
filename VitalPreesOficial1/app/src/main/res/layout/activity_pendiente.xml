@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/degradado_azul_verde_limon"
+    tools:context=".PendienteActivity">
+
+    <!-- ENCABEZADO COMÚN - Color anaranjado -->
+    <LinearLayout
+        android:id="@+id/encabezado_comun"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/anaranjado"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/logo_vitalpress"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/logovitalpress"
+                android:contentDescription="Logo VitalPress" />
+
+            <TextView
+                android:id="@+id/titulo_seccion"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Conexión"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/frase_fija"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tu salud es primero"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_marginTop="8dp" />
+
+    </LinearLayout>
+
+    <!-- Contenido principal -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="32dp">
+
+        <!-- Imagen central: pendiente -->
+        <ImageView
+            android:id="@+id/imagen_pendiente"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/pendiente"
+            android:contentDescription="Imagen Pendiente"
+            android:layout_marginBottom="32dp" />
+
+        <!-- Texto "Pendiente" -->
+        <TextView
+            android:id="@+id/txt_pendiente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pendiente"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:gravity="center" />
+
+        <!-- Botón para escanear dispositivo (abre la cámara) -->
+        <Button
+            android:id="@+id/btn_escanear_dispositivo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Escanear dispositivo"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:background="@drawable/boton_beige_curvo"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Nuevo: Ver y exportar documento del usuario -->
+        <Button
+            android:id="@+id/btn_ver_exportar_docx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ver y exportar documento del usuario"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:background="@drawable/boton_beige_curvo"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Vista previa de la imagen capturada -->
+        <ImageView
+            android:id="@+id/img_preview_scan"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:contentDescription="Preview Scan"
+            android:visibility="gone"
+            android:layout_marginTop="8dp" />
+
+    </LinearLayout>
+
+    <!-- Botón Regresar - inferior derecha -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/btn_regresar_pendiente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Regresar"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/rojo"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+
+</LinearLayout>

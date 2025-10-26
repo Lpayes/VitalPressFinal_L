@@ -1,0 +1,390 @@
+{
+  "name": "VitalPress",
+  "nodes": [
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.body }}",
+        "options": {
+          "systemMessage": "##Funcion general\nEres un asistente de para agendar citas, enviando la notificación por correo al doctor de una nueva cita agendada, correo al cliente que su cita fue realizada y guardas todo en una hoja calculo. \nEstos son los parámetros con los que debes funcionar:\n##Leer la información recibida\nLee la información recibida de JSON, que son los parámetros, Nombre, Correo, Sistolica, Diastolica, Pulso, Fecha, y Comentario en el cual se recibe una descripción breve, directa y fácil de entender. Con esta información genera la información necesaria para agendar la cita.\n##Agendar la cita en Calendar. No prosigas con los demás pasos hasta que se logre agendara la cita correctamente.\nTienes acceso a Google Calendar en el tool Agenda_Calendar, en el cual se creará la alerta de cita y agendará en al correo del doctor. Asignado la fecha que viene en el JSON enviado por la app, ejemplo(2025-10-24T14:25:25-06:00).\n##Enviar el correo al Doctor\nEn el tool de Gmail Cita_al_Doctor, enviar la información recibida del paciente, y de acuerdo con sus lecturas y leyendo la breve especificación, genera el texto para doctor, de forma profesional. Y envíaselo, el correo del Dr. Ya está predeterminado.\n##Agregar al la base de datos\nEn el Sheet Agenda_de_Citas, enviar la información requerida en ella para crear un registro de las citas agendadas, agregando la Palabra Agendada en la columna Estado.\n##Enviar el correo al usuario\nPor ultimo en Confirm_User, enviar un correo del Usuario, el cual es el correo proveniente de del JSON. envía un mensaje que confirme la cita, con los datos que se brindo, un mensaje agradable del Dr de confirmación. Y una leyenda abajo que digo algo como “La fecha agendada está sujeta a cambios. Le notificaremos con anticipación si se realiza alguna modificación”.\n\n##Datos a tomar en consideración para correos\nNombre del Doctor: Dr. Gordon Freeman\nNombre de la clinica: Aperture Science\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        -304,
+        -336
+      ],
+      "id": "8cf5fd48-7f3b-4a35-bfb4-dae8f9c2b148",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -576,
+        -112
+      ],
+      "id": "dae2eb50-d9b4-423f-869f-87e9348194b4",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "EITqWujbeBlQusoV",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "1ea7089c-40c7-43a4-a9c4-1da3bdd6c88f",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -672,
+        -336
+      ],
+      "id": "ae661edf-24ed-472f-8422-90c92115a38c",
+      "name": "Webhook1",
+      "webhookId": "1ea7089c-40c7-43a4-a9c4-1da3bdd6c88f"
+    },
+    {
+      "parameters": {
+        "calendar": {
+          "__rl": true,
+          "value": "mteretas@miumg.edu.gt",
+          "mode": "list",
+          "cachedResultName": "mteretas@miumg.edu.gt"
+        },
+        "start": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Start', `con la fecha y hora brindad por el usuario, esta en tipo JSON: 2025-10-24T14:25:25-06:00, donde 2025-10-24 es la fecha y T14:25:25-06:00 hora y región horario`, 'string') }}",
+        "end": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('End', `Que finalice una hora después de seleccionada por el usuario`, 'string') }}",
+        "additionalFields": {
+          "description": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Description', ` describe quien es el paciente por su nombre brindado y los datos de la sistólica y diastólica. y de acuerdo a sus comentario y sus dato: deja un mensaje sobre la condición del usuario al Dr.`, 'string') }}",
+          "summary": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Summary', `en el titulo de la añade \"Cita de: \" seguido del nombre de usurario.`, 'string') }}"
+        }
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.3,
+      "position": [
+        -272,
+        16
+      ],
+      "id": "2b661381-f637-470d-b0f0-b3132fd6ed48",
+      "name": "Agenda_Calendar",
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "HGOTqJU6Qz6HOpjg",
+          "name": "Google Calendar account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1vLj0l-ulR8v8D_gB9bCt1Dh91ji-yoLZiGdowEk31X8",
+          "mode": "list",
+          "cachedResultName": "VitalPressAC",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vLj0l-ulR8v8D_gB9bCt1Dh91ji-yoLZiGdowEk31X8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Agenda_de_Citas",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vLj0l-ulR8v8D_gB9bCt1Dh91ji-yoLZiGdowEk31X8/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Nombre": "={{ $json.body.Nombre }}",
+            "Correo": "={{ $json.body.Correo }}",
+            "Sistólica": "={{ $json.body.Sistolica }}",
+            "Diastólica": "={{ $json.body.Diastolica }}",
+            "Pulso": "={{ $json.body.Pulso }}",
+            "Comentario": "={{ $json.body.Comentario }}",
+            "Fecha": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Fecha', `se recibe la fecha del JSON así \"2025-10-24T14:25:25-06:00\", solo agrega la fecha que seria \"2025-10-24\". estas fecha son ejemplo que como se debe implementar según la fecha recibida`, 'string') }}",
+            "Estado": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Estado', `solo asigna el estado como Agendado o confimado`, 'string') }}",
+            "Hora": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Hora', `se recibe la fecha del JSON así \"2025-10-24T14:25:25-06:00\", solo agrega la hora que seria \"14:25:25\". estas horas son ejemplo que como se debe implementar según la hora recibida`, 'string') }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Nombre",
+              "displayName": "Nombre",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Correo",
+              "displayName": "Correo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Sistólica",
+              "displayName": "Sistólica",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Diastólica",
+              "displayName": "Diastólica",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Pulso",
+              "displayName": "Pulso",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Comentario",
+              "displayName": "Comentario",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Fecha",
+              "displayName": "Fecha",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Hora",
+              "displayName": "Hora",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Estado",
+              "displayName": "Estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        144,
+        -16
+      ],
+      "id": "2fe22599-4f23-4632-9565-1bb44cccf72c",
+      "name": "Agenda_de_Citas",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ZBsA1j2ufjyMLMLG",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $workflow.id }}",
+        "contextWindowLength": 20
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -432,
+        -80
+      ],
+      "id": "98e5217d-1e67-4d47-93cb-7a87bde8ad54",
+      "name": "Simple Memory",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Webhook1').item.json.body.Correo }}",
+        "subject": "Cita Confirmada",
+        "emailType": "text",
+        "message": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Message', `mensaje que confirme la cita, con los datos que se brindo, un mensaje agradable del Dr de confirmación. Y una leyenda abajo que digo algo como “La fecha agendada está sujeta a cambios. Le notificaremos con anticipación si se realiza alguna modificación”.`, 'string') }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmailTool",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "5d970d33-3369-47c6-b928-6ce08d0d732d",
+      "name": "User_Confirm",
+      "webhookId": "24718cb6-63ea-4070-a987-9d4323368751",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "kHV5Kqm0q6eo2jmp",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "mteretas@miumg.edu.gt",
+        "subject": "Nueva Cita",
+        "emailType": "text",
+        "message": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Message', `Enviar la información recibida del paciente, y de acuerdo con sus lecturas y leyendo la breve especificación, genera el texto para doctor, de forma profesional. Y envíaselo, el correo del Dr. Ya está predeterminado.`, 'string') }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmailTool",
+      "typeVersion": 2.1,
+      "position": [
+        -144,
+        16
+      ],
+      "id": "2d6fddd0-226e-45c1-9fbb-5b1d9d8f692a",
+      "name": "Cita_al_doctor",
+      "webhookId": "fb645904-1b00-4c1d-ba75-348c76ae386a",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "kHV5Kqm0q6eo2jmp",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        []
+      ]
+    },
+    "Webhook1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agenda_Calendar": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agenda_de_Citas": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "User_Confirm": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cita_al_doctor": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/Guatemala",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "versionId": "58d2c3dd-c2da-4979-92be-78ba76e44e2e",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "44d72f12bfb6833de0cce9fd925722b163845602a622f590332696448de13d9e"
+  },
+  "id": "4mtAuXwugYIqQvRL",
+  "tags": []
+}

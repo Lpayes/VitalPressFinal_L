@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="negro">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Colores personalizados para VitalPress -->
+    <color name="anaranjado">#FF9500</color>
+    <color name="rosada">#FFB6C1</color>
+    <color name="morada">#9370DB</color>
+    <color name="celeste">#87CEEB</color>
+    <color name="verde">#90EE90</color>
+    <color name="verde_fuerte">#32CD32</color>
+    <color name="amarillo_palido">#FFFFE0</color>
+    <color name="azul">#4169E1</color>
+    <color name="verde_limon">#ADFF2F</color>
+    <color name="amarillo_clarito">#FFFACD</color>
+    <color name="gris">#808080</color>
+    <color name="rojo">#FF0000</color>
+    <color name="beige_fuerte">#F5DEB3</color>
+    <color name="hint_palida">#99000000</color>
+</resources>
